@@ -1,5 +1,5 @@
 package $organization$.$name;format="lower,word"$
 
-object $name__Camel$ extends App {
+object $name;format="Camel"$ extends App {
   println("Hello $organization$.$name$!")
 }
