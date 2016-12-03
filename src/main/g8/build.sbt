@@ -1,64 +1,25 @@
-import scalariform.formatter.preferences._
-import com.typesafe.sbt.SbtScalariform
-import com.typesafe.sbt.SbtScalariform.ScalariformKeys
+
+resolvers in ThisBuild ++= Seq("Apache Development Snapshot Repository" at "https://repository.apache.org/content/repositories/snapshots/",
+    Resolver.mavenLocal)
 
 name := "$name$"
 
-organization := "$organization$"
-
 version := "$version$"
 
-scalaVersion := "2.12.0"
+organization := "$organization$"
 
-crossScalaVersions := Seq("2.11.8", "2.12.0")
+scalaVersion in ThisBuild := "$scala_version$"
 
-resolvers ++= Seq(
-  "Sonatype OSS Snapshots" at "http://oss.sonatype.org/content/repositories/snapshots/"
-)
 
 libraryDependencies ++= Seq(
-
-  //"com.chuusai" %% "shapeless" % "2.3.2",
-  //"org.typelevel" %% "cats" % "0.8.0",
-
-  //"com.typesafe.akka" %% "akka-actor" % "2.4.12",
-  //"com.typesafe.akka" %% "akka-slf4j" % "2.4.12",
-  //"com.typesafe.akka" %% "akka-stream" % "2.4.12",
-  //"com.typesafe.akka" %% "akka-stream-testkit" % "2.4.12",
-  //"com.typesafe.akka" %% "akka-testkit" % "2.4.12" % "test",
-
-  //"com.typesafe.akka" %% "akka-http-core" % "2.4.11",
-  //"com.typesafe.akka" %% "akka-http-experimental" % "2.4.11",
-  //"com.typesafe.akka" %% "akka-http-spray-json-experimental" % "2.4.11",
-  //"com.typesafe.akka" %% "akka-http-testkit" % "2.4.11",
-
-  "org.scalatest" %% "scalatest" % "3.0.0" % "test",
-  "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
+  "org.specs2" %% "specs2-core" % "3.8.3" % "test"
 )
 
-scalacOptions ++= Seq(
-    "-target:jvm-1.8",
-    "-deprecation",
-    "-encoding", "UTF-8",
-    "-feature",
-    "-language:existentials",
-    "-language:higherKinds",
-    "-language:implicitConversions",
-    "-language:experimental.macros",
-    "-unchecked",
-    //"-Ywarn-unused-import",
-    "-Ywarn-nullary-unit",
-    "-Xfatal-warnings",
-    "-Xlint",
-    //"-Yinline-warnings",
-    "-Ywarn-dead-code",
-    "-Xfuture")
+scalacOptions in Test ++= Seq("-Yrangepos")
+
+// Read here for optional dependencies:
+// https://etorreborre.github.io/specs2/guide/SPECS2-3.8.3/org.specs2.guide.Installation.html#other-dependencies
+
+resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo)
 
 initialCommands := "import $organization$.$name;format="lower,word"$._"
-
-SbtScalariform.scalariformSettings
-
-ScalariformKeys.preferences := ScalariformKeys.preferences.value
-  .setPreference(AlignSingleLineCaseStatements, true)
-  .setPreference(DoubleIndentClassDeclaration, true)
-  .setPreference(RewriteArrowSymbols, true)
