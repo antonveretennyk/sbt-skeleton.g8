@@ -2,7 +2,7 @@ package $organization$.$name;format="lower,word"$
 
 import org.specs2.mutable._
 
-class MainSpec extends Specification {
+class $name__Camel$Test extends Specification {
 
   "The 'Hello world' string" should {
     "contain 11 characters" in {
