@@ -21,5 +21,3 @@ scalacOptions in Test ++= Seq("-Yrangepos")
 // https://etorreborre.github.io/specs2/guide/SPECS2-3.8.3/org.specs2.guide.Installation.html#other-dependencies
 
 resolvers ++= Seq("snapshots", "releases").map(Resolver.sonatypeRepo)
-
-initialCommands := "import $organization$.$name;format="lower,word"$._"

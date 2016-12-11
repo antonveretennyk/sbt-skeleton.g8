@@ -1,8 +1,9 @@
 package $package$
 
 import org.specs2.mutable._
+import org.specs2.SpecificationWithJUnit
 
-class $name;format="Camel"$Test extends Specification {
+class $name;format="Camel"$Test extends SpecificationWithJUnit {
 
   "The 'Hello world' string" should {
     "contain 11 characters" in {
