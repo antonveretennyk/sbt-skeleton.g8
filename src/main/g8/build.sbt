@@ -12,7 +12,7 @@ scalaVersion in ThisBuild := "$scala_version$"
 
 
 libraryDependencies ++= Seq(
-  "org.specs2" %% "specs2-core" % "3.8.3" % "test"
+  "org.specs2" %% "specs2-core" % "3.8.7" % "test"
 )
 
 // Read here for optional dependencies:
