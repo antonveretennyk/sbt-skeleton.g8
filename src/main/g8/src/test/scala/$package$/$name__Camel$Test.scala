@@ -9,7 +9,7 @@ class $name;format="Camel"$Test extends Specification {
 
   "The 'Hello world' string" should {
     "contain 11 characters" in new Context  {
-      "Hello world" must have size(11)
+      "Hello world" must have size 11
     }
     "start with 'Hello'" in new Context  {
       "Hello world" must startWith("Hello")
