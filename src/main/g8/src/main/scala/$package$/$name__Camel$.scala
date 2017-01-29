@@ -1,5 +1,5 @@
 package $package$
 
 object $name;format="Camel"$ extends App {
-  println("Hello $name$!")
+  println("Project with name $name$! has been runned")
 }

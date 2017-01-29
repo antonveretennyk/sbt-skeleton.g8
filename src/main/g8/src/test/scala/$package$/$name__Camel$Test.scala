@@ -1,18 +1,20 @@
 package $package$
 
-import org.specs2.mutable._
-import org.specs2.SpecificationWithJUnit
+import org.specs2.mutable.Specification
+import org.specs2.specification.Scope
 
-class $name;format="Camel"$Test extends SpecificationWithJUnit {
+class $name;format="Camel"$Test extends Specification {
+
+  trait Context extends Scope
 
   "The 'Hello world' string" should {
-    "contain 11 characters" in {
+    "contain 11 characters" in new Context  {
       "Hello world" must have size(11)
     }
-    "start with 'Hello'" in {
+    "start with 'Hello'" in new Context  {
       "Hello world" must startWith("Hello")
     }
-    "end with 'world'" in {
+    "end with 'world'" in new Context  {
       "Hello world" must endWith("world")
     }
   }
